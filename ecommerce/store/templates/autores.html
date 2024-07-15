@@ -1,0 +1,12 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Autores - Biblioteca Digital{% endblock %}
+
+{% block content %}
+    <h1>Lista de Autores</h1>
+    <ul>
+        {% for autor in autores %}
+            <li>{{ autor.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'base_generic.html' %}
+<!-- Extiende de la plantilla base_generic.html, heredando su estructura y estilo básico -->
+
+{% block content %}
+<!-- Comienza un bloque de contenido denominado 'content' -->
+
+<style>
+  /* Estilos para el detalle del contacto */
+  .contact-detail-container {
+    background-color: #4b0082; /* Fondo morado oscuro */
+    padding: 20px; /* Relleno de 20px en todos los lados */
+    border-radius: 10px; /* Bordes redondeados de 10px */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    margin: 0 auto; /* Centrado horizontal */
+    max-width: 600px; /* Ancho máximo */
+    margin-top: 50px; /* Margen superior */
+    color: #fff; /* Color de texto blanco */
+    text-align: center; /* Alineación central del texto */
+  }
+
+  .contact-detail-container h2 {
+    margin-bottom: 20px; /* Margen inferior de 20px */
+  }
+
+  .contact-detail-container p {
+    margin-bottom: 10px; /* Margen inferior de 10px para párrafos */
+  }
+
+  .contact-detail-container .btn {
+    margin-top: 10px; /* Margen superior de 10px para botones */
+    margin-right: 10px; /* Margen derecho de 10px para botones */
+  }
+</style>
+
+<div class="container mt-5">
+  <!-- Contenedor de Bootstrap con margen superior (mt-5) para espaciado -->
+  <div class="contact-detail-container">
+    <!-- Contenedor del detalle del contacto con estilos personalizados -->
+
+    <h2>Detalle del Contacto</h2>
+    <!-- Encabezado de nivel 2 -->
+
+    <p><strong>Nombre:</strong> {{ contacto.nombre }}</p>
+    <!-- Párrafo que muestra el nombre del contacto con formato en negrita -->
+
+    <p><strong>Email:</strong> {{ contacto.email }}</p>
+    <!-- Párrafo que muestra el email del contacto con formato en negrita -->
+
+    <p><strong>Mensaje:</strong> {{ contacto.mensaje }}</p>
+    <!-- Párrafo que muestra el mensaje del contacto con formato en negrita -->
+
+    <a href="{% url 'contacto_editar' contacto.pk %}" class="btn btn-primary">Editar</a>
+    <!-- Enlace que redirige a la vista de edición del contacto, estilizado como un botón primario -->
+
+    <form method="POST" action="{% url 'contacto_eliminar' contacto.pk %}" style="display:inline;">
+      <!-- Formulario para eliminar el contacto, utilizando el método POST -->
+      <!-- El atributo 'style="display:inline;"' mantiene el formulario en línea con otros elementos -->
+
+      {% csrf_token %}
+      <!-- Token CSRF para proteger contra ataques de falsificación de solicitudes entre sitios -->
+
+      <button type="submit" class="btn btn-danger">Eliminar</button>
+      <!-- Botón de envío con clases de Bootstrap para estilizarlo como un botón de peligro (rojo) -->
+    </form>
+
+    <a href="{% url 'contacto_lista' %}" class="btn btn-secondary">Volver a la lista</a>
+    <!-- Enlace que redirige a la vista de lista de contactos, estilizado como un botón secundario -->
+  </div>
+</div>
+
+{% endblock %}
+<!-- Finaliza el bloque de contenido 'content' -->

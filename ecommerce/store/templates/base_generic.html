@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Biblioteca Digital{% endblock %}</title>
+    <!-- Cargar etiquetas estáticas -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- Otros metadatos, estilos y scripts -->
+</head>
+<body>
+    <!-- Contenido de la página -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Scripts adicionales -->
+    {% block extra_js %}
+    {% endblock %}
+</body>
+</html>

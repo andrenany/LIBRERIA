@@ -1,0 +1,137 @@
+{% extends 'base_generic.html' %}
+<!-- Extiende de la plantilla base_generic.html, heredando su estructura y estilo básico -->
+
+{% block content %}
+<!-- Comienza un bloque de contenido denominado 'content' -->
+
+<style>
+  /* Estilos para el formulario de edición de contacto */
+  .edit-contact-container {
+    background-color: #4b0082; /* Fondo morado oscuro */
+    padding: 20px; /* Relleno de 20px en todos los lados */
+    border-radius: 10px; /* Bordes redondeados de 10px */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    margin: 0 auto; /* Centrado horizontal */
+    max-width: 600px; /* Ancho máximo */
+    margin-top: 50px; /* Margen superior */
+    color: #fff; /* Color de texto blanco */
+    text-align: center; /* Alineación central del texto */
+  }
+
+  .edit-contact-container h2 {
+    margin-bottom: 20px; /* Margen inferior de 20px */
+  }
+
+  .edit-contact-container .input-group-text {
+    font-size: 2rem; /* Tamaño de ícono aumentado */
+    color: #fff; /* Color de ícono blanco */
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    margin-right: 10px; /* Margen derecho de 10px */
+  }
+
+  .edit-contact-container .btn-primary {
+    background-color: #ff69b4; /* Color rosa para el botón primario */
+    border-color: #ff69b4; /* Borde rosa */
+  }
+
+  /* Estilo para hacer que las barras de entrada tengan el mismo ancho */
+  .edit-contact-container .input-group {
+    width: 100%; /* Ancho del 100% para ocupar todo el espacio disponible */
+  }
+</style>
+
+<div class="container mt-5">
+  <!-- Contenedor de Bootstrap con margen superior (mt-5) para espaciado -->
+  <div class="edit-contact-container">
+    <!-- Contenedor del formulario de edición de contacto con estilos personalizados -->
+
+    <h2>Editar Contacto</h2>
+    <!-- Encabezado de nivel 2 -->
+
+    <form method="POST" class="needs-validation" novalidate>
+      <!-- Formulario HTML con método POST para enviar datos al servidor -->
+      <!-- Clase 'needs-validation' de Bootstrap para validación personalizada -->
+      <!-- Atributo 'novalidate' para desactivar la validación nativa del navegador -->
+
+      {% csrf_token %}
+      <!-- Token CSRF para proteger contra ataques de falsificación de solicitudes entre sitios -->
+
+      <div class="mb-3">
+        <!-- Div con margen inferior (mb-3) -->
+        <label for="{{ form.nombre.id_for_label }}" class="visually-hidden">Nombre</label>
+        <!-- Etiqueta del campo 'nombre' con clase visually-hidden para ocultarla visualmente pero mantenerla accesible para asistentes de pantalla -->
+        <div class="input-group mb-3">
+          <!-- Grupo de entrada de Bootstrap con margen inferior (mb-3) -->
+          <span class="input-group-text"><i class="fas fa-user"></i></span>
+          <!-- Ícono de usuario -->
+          {{ form.nombre }}
+          <!-- Renderiza el campo 'nombre' del formulario -->
+        </div>
+        <div class="invalid-feedback">
+          <!-- Div para mostrar mensajes de retroalimentación si el campo es inválido -->
+          {% if form.nombre.errors %}
+            {% for error in form.nombre.errors %}
+              <span>{{ error }}</span><br>
+            {% endfor %}
+          {% endif %}
+          <!-- Renderiza los errores del campo 'nombre' del formulario -->
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <!-- Div con margen inferior (mb-3) -->
+        <label for="{{ form.email.id_for_label }}" class="visually-hidden">Email</label>
+        <!-- Etiqueta del campo 'email' con clase visually-hidden para ocultarla visualmente pero mantenerla accesible para asistentes de pantalla -->
+        <div class="input-group mb-3">
+          <!-- Grupo de entrada de Bootstrap con margen inferior (mb-3) -->
+          <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+          <!-- Ícono de sobre (email) -->
+          {{ form.email }}
+          <!-- Renderiza el campo 'email' del formulario -->
+        </div>
+        <div class="invalid-feedback">
+          <!-- Div para mostrar mensajes de retroalimentación si el campo es inválido -->
+          {% if form.email.errors %}
+            {% for error in form.email.errors %}
+              <span>{{ error }}</span><br>
+            {% endfor %}
+          {% endif %}
+          <!-- Renderiza los errores del campo 'email' del formulario -->
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <!-- Div con margen inferior (mb-3) -->
+        <label for="{{ form.mensaje.id_for_label }}" class="visually-hidden">Mensaje</label>
+        <!-- Etiqueta del campo 'mensaje' con clase visually-hidden para ocultarla visualmente pero mantenerla accesible para asistentes de pantalla -->
+        <div class="input-group mb-3">
+          <!-- Grupo de entrada de Bootstrap con margen inferior (mb-3) -->
+          <span class="input-group-text"><i class="fas fa-comment"></i></span>
+          <!-- Ícono de comentario (mensaje) -->
+          {{ form.mensaje }}
+          <!-- Renderiza el campo 'mensaje' del formulario -->
+        </div>
+        <div class="invalid-feedback">
+          <!-- Div para mostrar mensajes de retroalimentación si el campo es inválido -->
+          {% if form.mensaje.errors %}
+            {% for error in form.mensaje.errors %}
+              <span>{{ error }}</span><br>
+            {% endfor %}
+          {% endif %}
+          <!-- Renderiza los errores del campo 'mensaje' del formulario -->
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Guardar</button>
+      <!-- Botón de envío con clases de Bootstrap para estilizarlo como un botón primario -->
+
+      <a href="{% url 'contacto_lista' %}" class="btn btn-secondary">Cancelar</a>
+      <!-- Enlace con clases de Bootstrap para estilizarlo como un botón secundario -->
+      <!-- Redirige a la vista de lista de contactos si se hace clic en cancelar -->
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+<!-- Finaliza el bloque de contenido 'content' -->

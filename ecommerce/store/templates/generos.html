@@ -1,0 +1,13 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Géneros - Biblioteca Digital{% endblock %}
+
+{% block content %}
+    <h1>Lista de Géneros</h1>
+    <ul>
+        {% for genero in generos %}
+            <li>{{ genero.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
