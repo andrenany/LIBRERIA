@@ -57,3 +57,7 @@ body {
     color: #CCCCCC; /* Cambio de color al pasar el mouse */
     text-decoration: none; /* Sin subrayado */
 }
+
+@media (max-width: 768px) {
+    /* Estilos específicos para pantallas más pequeñas */
+}

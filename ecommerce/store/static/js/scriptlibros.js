@@ -35,3 +35,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    var bookDetailModal = new bootstrap.Modal(document.getElementById('bookDetailModal'));
+
+    // Escuchar clics en los botones "Ver Detalle"
+    var showDetailButtons = document.querySelectorAll('.btn-show-details');
+    showDetailButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            var bookTitle = button.getAttribute('data-book-title');
+            var bookDescription = button.getAttribute('data-book-description');
+            var bookAuthor = button.getAttribute('data-book-author');
+            var bookGenre = button.getAttribute('data-book-genre');
+
+            // Actualizar contenido del modal
+            document.getElementById('bookTitle').textContent = bookTitle;
+            document.getElementById('bookDescription').textContent = bookDescription;
+            document.getElementById('bookAuthor').textContent = 'Autor: ' + bookAuthor;
+            document.getElementById('bookGenre').textContent = 'Género: ' + bookGenre;
+
+            // Abrir el modal
+            bookDetailModal.show();
+        });
+    });
+});

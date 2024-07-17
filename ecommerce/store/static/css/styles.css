@@ -220,3 +220,7 @@ h3 {
     font-size: 1.1rem; /* Tamaño de fuente */
     line-height: 1.6; /* Altura de línea */
 }
+
+@media (max-width: 768px) {
+    /* Estilos específicos para pantallas más pequeñas */
+}

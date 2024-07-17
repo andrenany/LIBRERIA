@@ -7,24 +7,24 @@
     <!-- Cargar hojas de estilo -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles2.css' %}">
-    <link rel="stylesheet" href="{% static 'css/stylesconfirm.css' %}">
+
     <!-- Puedes agregar aquí otros metadatos, estilos y scripts -->
 </head>
 <body>
-    <!-- Contenido de la página -->
-    {% block content %}
-    <div class="vh-100 d-flex justify-content-center align-items-center background-image">
-        <div class="custom-centered-content text-center">
-            <h2>¡Gracias por tu mensaje!</h2>
-            <p class="contact-message">Nos pondremos en contacto contigo pronto.</p>
-        </div>
-        <img src="{% static 'img/blood.gif' %}" class="top-right-gif" alt="Top Right GIF">
-        <img src="{% static 'img/blooood.gif' %}" class="bottom-left-gif" alt="Bottom Left GIF">
-    </div>
-    {% endblock %}
-
-    <!-- Scripts adicionales -->
-    {% block extra_js %}
-    {% endblock %}
-</body>
-</html>
+     <!-- Contenido de la página -->
+     {% block content %}
+     <div class="vh-100 d-flex justify-content-center align-items-center background-image">
+         <div class="custom-centered-content text-center">
+             <h2>¡Gracias por tu mensaje!</h2>
+             <p class="contact-message">Nos pondremos en contacto contigo pronto.</p>
+         </div>
+         <img src="{% static 'img/blood.gif' %}" class="top-right-gif" alt="Top Right GIF">
+         <img src="{% static 'img/blooood.gif' %}" class="bottom-left-gif" alt="Bottom Left GIF">
+     </div>
+     {% endblock %}
+ 
+     <!-- Scripts adicionales -->
+     {% block extra_js %}
+     {% endblock %}
+ </body>
+ </html>

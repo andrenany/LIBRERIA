@@ -14,3 +14,7 @@ body {
     max-width: 100%; /* Ocupar todo el ancho disponible */
     margin-bottom: 20px; /* Espacio entre las tarjetas */
 }
+
+@media (max-width: 768px) {
+    /* Estilos específicos para pantallas más pequeñas */
+}

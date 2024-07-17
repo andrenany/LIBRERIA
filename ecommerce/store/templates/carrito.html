@@ -14,65 +14,9 @@
     <!-- Enlace a CSS personalizado -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylescarrito.css' %}">
     <!-- Google Fonts - Playfair Display -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        
-        .container {
-            flex: 1;
-        }
-        
-        .empty-cart-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 50vh; /* Aumentado para ocupar más espacio vertical */
-            margin: 5vh 0; /* Añadido margen arriba y abajo */
-        }
-        
-        .empty-cart-content {
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 30px; /* Aumentado el padding */
-            width: 80%; /* Ancho aumentado */
-            max-width: 500px; /* Máximo ancho para pantallas grandes */
-        }
-        
-        .empty-cart-content img {
-            width: 80px; /* Aumentado el tamaño del icono */
-            margin-bottom: 20px;
-        }
-        
-        .empty-cart-content p {
-            margin-bottom: 20px;
-            font-size: 1.2em; /* Aumentado el tamaño del texto */
-        }
-        
-        .empty-cart-content a {
-            background-color: red;
-            color: white;
-            font-weight: bold;
-            padding: 12px 24px;
-            font-size: 1em;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        footer {
-            background-color: #8B0000; /* Color rojo oscuro para el pie de página */
-            padding: 20px 0;
-            margin-top: auto; /* Empuja el footer al fondo */
-        }
-    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">

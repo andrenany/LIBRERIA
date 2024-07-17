@@ -1,4 +1,3 @@
-{% extends 'base_generic.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
@@ -6,104 +5,10 @@
     <meta charset="UTF-8">
     <title>{% block title %}Contactos Recibidos{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styleslista.css' %}">
 </head>
 <body>
     {% block content %}
-    <style>
-        body {
-            background-image: url("{% static 'img/screamm.jpg' %}");
-            background-size: cover;
-            background-position: center;
-            color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .content-container {
-            width: 90%;
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 20px; /* Bordes más redondeados */
-            overflow: hidden; /* Para que los bordes redondeados se apliquen a la tabla */
-        }
-
-        h1 {
-            color: white;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin-top: 20px;
-            overflow: hidden; /* Para redondear los bordes de la tabla */
-        }
-
-        th, td {
-            border: 1px solid #444;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #b11131;
-            color: white;
-            font-weight: bold;
-        }
-
-        td {
-            color: white;
-        }
-
-        .btn-action {
-            display: inline-block;
-            padding: 8px 12px;
-            border-radius: 5px;
-            color: white;
-            font-size: 0.9rem;
-            text-align: center;
-            text-decoration: none;
-            margin: 0 5px;
-            cursor: pointer;
-        }
-
-        .ver, .editar, .eliminar {
-            background-color: #b11131;
-        }
-
-        .btn-action:hover {
-            opacity: 0.8;
-        }
-
-        .top-right-gif {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 150px; /* Ajusta según sea necesario */
-        }
-
-        .bottom-left-gif {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 150px; /* Ajusta según sea necesario */
-        }
-    </style>
-
-    <img src="{% static 'img/blood.gif' %}" class="top-right-gif" alt="Top Right GIF">
-    <img src="{% static 'img/blooood.gif' %}" class="bottom-left-gif" alt="Bottom Left GIF">
-
     <div class="content-container">
         <h1>Contactos Recibidos</h1>
         
