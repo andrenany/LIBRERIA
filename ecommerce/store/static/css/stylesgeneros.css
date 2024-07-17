@@ -1,0 +1,15 @@
+body {
+    background-color: black; /* Fondo negro */
+    color: red; /* Letras rojas */
+}
+.titulo-generos {
+    max-width: 400px; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+}
+.card {
+    background-color: black; /* Fondo negro de la tarjeta */
+    border: 1px solid white; /* Borde blanco */
+    color: white; /* Letras blancas */
+    max-width: 100%; /* Ocupar todo el ancho disponible */
+    margin-bottom: 20px; /* Espacio entre las tarjetas */
+}

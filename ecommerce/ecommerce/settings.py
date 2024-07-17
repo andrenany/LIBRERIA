@@ -29,10 +29,9 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Appliation definition
+# Application definition
 
 INSTALLED_APPS = [
-    
     'bootstrap5',
     'store',
     'django.contrib.admin',
@@ -44,7 +43,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
 ]
-CKEDITOR_UPLOAD_PATH = "uploads/"####   Etapa 4 
+
+CKEDITOR_UPLOAD_PATH = "uploads/"  # Etapa 4
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -132,12 +132,13 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'store/static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# Al final del archivo settings.py
+# Media files settings
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Configuración de URL de inicio de sesión y cierre de sesión en línea 160 aprox
+# Login and logout redirect URLs
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+# Cart session ID
 CART_SESSION_ID = 'cart'

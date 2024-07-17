@@ -1,0 +1,94 @@
+body {
+    background-image: url("../img/screamm.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.content-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 20px; /* Bordes más redondeados */
+    overflow: hidden; /* Para que los bordes redondeados se apliquen a la tabla */
+}
+
+h1 {
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Colapso de bordes para mejor visualización */
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #444;
+    padding: 10px; /* Espaciado interno de celdas */
+    text-align: left;
+}
+
+th {
+    background-color: #b11131;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    color: white;
+}
+
+.btn-action {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px; /* Espaciado entre botones */
+    cursor: pointer;
+    background-color: #b11131; /* Color de fondo de botones */
+    border: none; /* Sin bordes */
+}
+
+.btn-action:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .content-container {
+        padding: 10px; /* Ajuste de padding para dispositivos móviles */
+    }
+
+    table {
+        font-size: 0.8rem; /* Tamaño de fuente reducido en dispositivos móviles */
+        margin-top: 10px; /* Espacio adicional en la parte superior */
+    }
+
+    th, td {
+        padding: 6px; /* Reducción adicional del espaciado interno en celdas para dispositivos móviles */
+    }
+
+    .btn-action {
+        font-size: 0.8rem; /* Tamaño de fuente de botones reducido en dispositivos móviles */
+        padding: 8px 12px; /* Ajuste del padding para mantener los botones de igual tamaño */
+        margin: 5px; /* Espaciado entre botones */
+        width: 100px; /* Ancho fijo para los botones */
+        box-sizing: border-box; /* Incluir el padding y el borde en el ancho total */
+    }
+}

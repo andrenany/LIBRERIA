@@ -16,8 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    {% comment %} barrita del navegador {% endcomment %}
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
         <div class="container">
             <!-- Logo -->
@@ -69,79 +68,50 @@
             </div>
         </div>
     </nav>
-    {% comment %} Termino de la barrita del navegador, funciona, no tocar {% endcomment %}
-
 
     <!-- Carrusel de libros destacados -->
-
-<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="5000">
-            <img src="{% static 'img/fondoit.png' %}" class="d-block w-100" alt="Libro 1">
-            <div class="carousel-caption d-none d-md-block text-white">
-                <h5>IT</h5>
-                <p>Cuidado con los globos rojos.</p>
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="5000">
+                <img src="{% static 'img/fondoit.png' %}" class="d-block w-100" alt="Libro 1">
+                <div class="carousel-caption d-none d-md-block text-white">
+                    <h5>IT</h5>
+                    <p>Cuidado con los globos rojos.</p>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="{% static 'img/fotos3.jpeg' %}" class="d-block w-100" alt="Libro 2">
+                <div class="carousel-caption d-none d-md-block text-white">
+                    <h5>Doctor Sueño</h5>
+                    <p>Los sueños siempre tienen un mensaje oculto.</p>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="{% static 'img/hadas.jpg' %}" class="d-block w-100" alt="Libro 3">
+                <div class="carousel-caption d-none d-md-block text-white">
+                    <h5>Cuentos De Hadas</h5>
+                    <p>Nunca se sabe con qué te enfrentarás.</p>
+                </div>
             </div>
         </div>
-        <div class="carousel-item" data-bs-interval="5000">
-            <img src="{% static 'img/fotos3.jpeg' %}" class="d-block w-100" alt="Libro 2">
-            <div class="carousel-caption d-none d-md-block text-white">
-                <h5>Doctor Sueño</h5>
-                <p>Los sueños siempre tienen un mensaje oculto.</p>
+        <!-- Overlay para texto -->
+        <div class="carousel-overlay d-flex justify-content-center align-items-center">
+            <div class="carousel-text-container text-center">
+                <h2 class="carousel-title">Sobre la oscuridad y el miedo</h2>
+                <p class="carousel-description">En la inmensidad de la noche se esconden secretos inimaginables. Descubre historias que te llevarán más allá de tus temores más profundos, donde cada página es un escalofrío que recorre tu espina dorsal.</p>
             </div>
         </div>
-        <div class="carousel-item" data-bs-interval="5000">
-            <img src="{% static 'img/hadas.jpg' %}" class="d-block w-100" alt="Libro 3">
-            <div class="carousel-caption d-none d-md-block text-white">
-                <h5>Cuentos De Hadas</h5>
-                <p>Nunca se sabe con que te enfrentarás.</p>
-            </div>
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <!-- Texto sobre la oscuridad y el miedo -->
-    <div class="carousel-overlay">
-        <div class="carousel-text">
-            <h2>Sobre la oscuridad y el miedo</h2>
-            <p>En la inmensidad de la noche se esconden secretos inimaginables. Descubre historias que te llevarán más allá de tus temores más profundos, donde cada página es un escalofrío que recorre tu espina dorsal.</p>
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
-
-  <!-- final del Carrusel de libros destacados -->
-
-  {% comment %} preguntar a la cata que hace este style todo atravesado {% endcomment %}
-<style>
-    .carousel-caption {
-        color: white; /* Color blanco para el texto de los libros 1 y 2 */
-    }
-
-    .carousel-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
-        color: white;
-        padding-left: 50px; /* Ajusta el padding izquierdo para el texto */
-    }
-
-    .carousel-text {
-        max-width: 50%; /* Ancho máximo para el texto */
-    }
-</style>
-
+</body>
+</html>
 
 <!-- TÍTULO "Fairy Tale" y detalles del libro -->
 <section class="parrafo" id="parrafo">

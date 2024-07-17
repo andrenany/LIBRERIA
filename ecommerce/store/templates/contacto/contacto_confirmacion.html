@@ -7,70 +7,24 @@
     <!-- Cargar hojas de estilo -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles2.css' %}">
+
     <!-- Puedes agregar aquí otros metadatos, estilos y scripts -->
 </head>
 <body>
-    <!-- Contenido de la página -->
-    {% block content %}
-    <div class="vh-100 d-flex justify-content-center align-items-center background-image">
-        <div class="custom-centered-content text-center">
-            <h2>¡Gracias por tu mensaje!</h2>
-            <p class="contact-message">Nos pondremos en contacto contigo pronto.</p>
-        </div>
-        <img src="{% static 'img/blood.gif' %}" class="top-right-gif" alt="Top Right GIF">
-        <img src="{% static 'img/blooood.gif' %}" class="bottom-left-gif" alt="Bottom Left GIF">
-    </div>
-    {% endblock %}
-
-    <!-- Scripts adicionales -->
-    {% block extra_js %}
-    <style>
-        .vh-100 {
-            height: 100vh;
-            position: relative;
-        }
-
-        .background-image {
-            background-image: url("{% static 'img/screamm.jpg' %}");
-            background-size: cover;
-            background-position: center;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-        }
-
-        .contact-message {
-            font-size: 1.25rem;
-            color: red; /* Cambia el color de la letra a rojo */
-            margin-left: 40px; /* Ajusta esto para mover el texto a la derecha */
-            position: relative; /* Permite ajustar el texto más cerca del encabezado */
-            top: -1rem; /* Ajusta esto para subir el texto */
-        }
-
-        .custom-centered-content {
-            position: absolute;
-            top: 55%; /* Ajusta esto para bajar más el contenido */
-            left: 55%; /* Ajusta esto para mover hacia la derecha */
-            transform: translate(-50%, -50%);
-            width: 50%; /* Ajusta el ancho del contenido si es necesario */
-            color: white; /* Asegura que el texto sea visible sobre la imagen */
-        }
-
-        .top-right-gif {
-            position: absolute;
-            top: 10%; /* Ajusta según sea necesario */
-            right: 10%; /* Ajusta según sea necesario */
-            width: 200px; /* Ajusta el tamaño del GIF */
-        }
-
-        .bottom-left-gif {
-            position: absolute;
-            bottom: 10%; /* Ajusta según sea necesario */
-            left: 10%; /* Ajusta según sea necesario */
-            width: 200px; /* Ajusta el tamaño del GIF */
-        }
-    </style>
-    {% endblock %}
-</body>
-</html>
+     <!-- Contenido de la página -->
+     {% block content %}
+     <div class="vh-100 d-flex justify-content-center align-items-center background-image">
+         <div class="custom-centered-content text-center">
+             <h2>¡Gracias por tu mensaje!</h2>
+             <p class="contact-message">Nos pondremos en contacto contigo pronto.</p>
+         </div>
+         <img src="{% static 'img/blood.gif' %}" class="top-right-gif" alt="Top Right GIF">
+         <img src="{% static 'img/blooood.gif' %}" class="bottom-left-gif" alt="Bottom Left GIF">
+     </div>
+     {% endblock %}
+ 
+     <!-- Scripts adicionales -->
+     {% block extra_js %}
+     {% endblock %}
+ </body>
+ </html>

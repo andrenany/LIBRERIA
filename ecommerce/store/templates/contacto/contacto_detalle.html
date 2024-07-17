@@ -1,4 +1,4 @@
-{% extends 'base_generic.html' %}
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -6,124 +6,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stylesdeta.css' %}">
 </head>
 <body>
     {% block content %}
-    <style>
-        body {
-            background-color: #b11131;
-            color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url("{% static 'img/mancha2.png' %}");
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-        }
-
-        .contact-detail-container {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 50px auto;
-            width: 600px;
-            color: #fff;
-            text-align: center;
-        }
-
-        .contact-detail-container h2 {
-            margin-bottom: 20px;
-        }
-
-        .contact-detail-container p {
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .contact-detail-container p span {
-            margin-left: 10px;
-        }
-
-        .btn-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 8px 15px;
-            margin: 5px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-            border-radius: 20px;
-            transition: background-color 0.3s, opacity 0.3s;
-        }
-
-        .btn-primary, .btn-danger, .btn-secondary {
-            background-color: #b11131;
-            color: white;
-        }
-
-        .btn:hover {
-            opacity: 0.8;
-        }
-
-        .form-container {
-            max-width: 600px;
-            margin: 50px auto;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-container label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .form-container input, .form-container textarea {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin-bottom: 10px;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .form-container input[type="submit"] {
-            width: auto;
-            background-color: #b11131;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s, opacity 0.3s;
-        }
-
-        .form-container input[type="submit"]:hover {
-            opacity: 0.8;
-        }
-
-    </style>
-
     <div class="container mt-5">
         <div class="contact-detail-container">
             <h2>Detalle del Contacto</h2>
