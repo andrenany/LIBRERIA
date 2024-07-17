@@ -1,6 +1,8 @@
+/* styles.css */
+
 body {
     background-color: red;
-    background-image: url("../img/mancha2.png");
+    background-image: url("img/mancha2.png");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -8,8 +10,9 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-  }
-  .login-container {
+}
+
+.login-container, .logout-container {
     max-width: 600px; /* Ampliar el ancho máximo */
     padding: 40px; /* Aumentar el padding para mayor espacio interior */
     border-radius: 1rem;
@@ -17,21 +20,25 @@ body {
     background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro más transparente */
     color: #fff;
     text-align: center;
-  }
-  .login-container h2 {
+}
+
+.login-container h2, .logout-container h2 {
     margin-bottom: 20px;
-  }
-  .login-container form {
+}
+
+.login-container form, .logout-container form {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  .login-container .form-group {
+}
+
+.login-container .form-group, .logout-container .form-group {
     position: relative;
     width: 100%;
     margin-bottom: 15px;
-  }
-  .login-container .form-group input {
+}
+
+.login-container .form-group input, .logout-container .form-group input {
     padding-left: 40px;
     border-radius: 2rem;
     width: 100%;
@@ -39,15 +46,17 @@ body {
     border: 1px solid #ccc;
     background-color: #fff;
     box-sizing: border-box;
-  }
-  .login-container .form-group i {
+}
+
+.login-container .form-group i, .logout-container .form-group i {
     position: absolute;
     left: 10px;
     top: 50%;
     transform: translateY(-50%);
     color: #999;
-  }
-  .login-container .btn {
+}
+
+.login-container .btn, .logout-container .btn {
     margin-top: 20px;
     border-radius: 2rem;
     background-color: #000;
@@ -56,17 +65,19 @@ body {
     height: 40px;
     border: none;
     cursor: pointer;
-  }
-  .login-container .btn:hover {
+}
+
+.login-container .btn:hover, .logout-container .btn:hover {
     background-color: #333;
-  }
-  .bottom-right-image {
+}
+
+.bottom-right-image {
     position: fixed;
     bottom: 30px;
     right: 30px;
     width: 150px; /* Aumentar el ancho */
     height: 150px; /* Aumentar la altura */
-    background-image: url("img/fotoabajo.png");
+    background-image: url("{% static 'img/fotoabajo.png' %}");
     background-size: cover;
     background-position: center;
-  }
+}

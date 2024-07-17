@@ -1,8 +1,21 @@
 {% extends 'base_generic.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Cargar hojas de estilo -->
+    <!-- Puedes agregar aquí otros metadatos, estilos y scripts -->
+</head>
+<body>
 {% block content %}
-<div class="container mt-5">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="{% static 'css/styleslogout.css' %}">
+
+{% block content %}
+<div class="logout-container">
     <h2>Cierre de Sesión</h2>
     <p>Has cerrado sesión correctamente.</p>
 </div>
 {% endblock %}
- 
