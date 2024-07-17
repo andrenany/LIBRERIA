@@ -1,79 +1,137 @@
 {% extends 'base_generic.html' %}
-<!-- Extiende de la plantilla base_generic.html, heredando su estructura y estilo básico -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Contactos Recibidos{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    {% block content %}
+    <style>
+        body {
+            background-image: url("{% static 'img/screamm.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-{% block extra_css %}
+        .content-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 20px; /* Bordes más redondeados */
+            overflow: hidden; /* Para que los bordes redondeados se apliquen a la tabla */
+        }
 
-{% endblock %}
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-{% block content %}
-<!-- Comienza un bloque de contenido denominado 'content' -->
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+            overflow: hidden; /* Para redondear los bordes de la tabla */
+        }
 
-  <div class="container mt-5">
-    <!-- Contenedor de Bootstrap con margen superior (mt-5) para espaciado -->
-    <h2 class="text-center mb-4">Contactos Recibidos</h2>
-    <!-- Encabezado de nivel 2 centrado con margen inferior (mb-4) -->
+        th, td {
+            border: 1px solid #444;
+            padding: 8px;
+            text-align: left;
+        }
 
-    <div class="table-responsive">
-      <!-- Contenedor de Bootstrap que hace la tabla responsive -->
-      <table class="table table-hover align-middle">
-        <!-- Tabla con clases de Bootstrap para hacerla 'hover' y con alineación vertical media -->
-        <thead class="table-dark">
-          <!-- Encabezado de la tabla con fondo oscuro -->
-          <tr>
-            <th scope="col">Nombre</th>
-            <!-- Columna para los nombres -->
-            <th scope="col">Email</th>
-            <!-- Columna para los emails -->
-            <th scope="col">Mensaje</th>
-            <!-- Columna para los mensajes -->
-            <th scope="col" class="text-center">Acciones</th>
-            <!-- Columna centrada para las acciones -->
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Cuerpo de la tabla -->
-          {% for contacto in contactos %}
-          <!-- Bucle que recorre todos los contactos -->
-            <tr>
-              <td>{{ contacto.nombre }}</td>
-              <!-- Celda que muestra el nombre del contacto -->
-              <td>{{ contacto.email }}</td>
-              <!-- Celda que muestra el email del contacto -->
-              <td>{{ contacto.mensaje }}</td>
-              <!-- Celda que muestra el mensaje del contacto -->
-              <td class="text-center">
-                <!-- Celda centrada para las acciones -->
-                <a href="{% url 'contacto_detalle' contacto.pk %}" class="btn btn-link m-1" title="Ver">
-                  <!-- Enlace a la vista de detalle del contacto, estilizado como enlace sin estilos (botón de enlace) -->
-                  <i class="fas fa-eye text-info"></i>
-                  <!-- Icono de ojo (ver), con color azul -->
-                </a>
-                <a href="{% url 'contacto_editar' contacto.pk %}" class="btn btn-link m-1" title="Editar">
-                  <!-- Enlace a la vista de edición del contacto, estilizado como enlace sin estilos (botón de enlace) -->
-                  <i class="fas fa-pencil-alt text-warning"></i>
-                  <!-- Icono de lápiz (editar), con color amarillo -->
-                </a>
-                <form method="POST" action="{% url 'contacto_eliminar' contacto.pk %}" style="display:inline;">
-                  <!-- Formulario para eliminar el contacto, utilizando el método POST -->
-                  <!-- El atributo 'style="display:inline;"' mantiene el formulario en línea con otros elementos -->
-                  {% csrf_token %}
-                  <!-- Token CSRF para proteger contra ataques de falsificación de solicitudes entre sitios -->
-                  <button type="submit" class="btn btn-link m-1" title="Eliminar" onclick="return confirm('¿Estás seguro de eliminar este contacto?');">
-                    <!-- Botón de envío estilizado como enlace sin estilos (botón de enlace) -->
-                    <i class="fas fa-trash-alt text-danger"></i>
-                    <!-- Icono de basurero (eliminar), con color rojo -->
-                  </button>
-                </form>
-              </td>
-            </tr>
-          {% endfor %}
-          <!-- Fin del bucle que recorre los contactos -->
-        </tbody>
-      </table>
+        th {
+            background-color: #b11131;
+            color: white;
+            font-weight: bold;
+        }
+
+        td {
+            color: white;
+        }
+
+        .btn-action {
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 5px;
+            color: white;
+            font-size: 0.9rem;
+            text-align: center;
+            text-decoration: none;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .ver, .editar, .eliminar {
+            background-color: #b11131;
+        }
+
+        .btn-action:hover {
+            opacity: 0.8;
+        }
+
+        .top-right-gif {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px; /* Ajusta según sea necesario */
+        }
+
+        .bottom-left-gif {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 150px; /* Ajusta según sea necesario */
+        }
+    </style>
+
+    <img src="{% static 'img/blood.gif' %}" class="top-right-gif" alt="Top Right GIF">
+    <img src="{% static 'img/blooood.gif' %}" class="bottom-left-gif" alt="Bottom Left GIF">
+
+    <div class="content-container">
+        <h1>Contactos Recibidos</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Mensaje</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contacto in contactos %}
+                <tr>
+                    <td>{{ contacto.nombre }}</td>
+                    <td>{{ contacto.email }}</td>
+                    <td>{{ contacto.mensaje }}</td>
+                    <td>
+                        <a href="{% url 'contacto_detalle' contacto.pk %}" class="btn-action ver">Ver</a>
+                        <a href="{% url 'contacto_editar' contacto.pk %}" class="btn-action editar">Editar</a>
+                        <a href="{% url 'contacto_eliminar' contacto.pk %}" class="btn-action eliminar" onclick="return confirm('¿Estás seguro de eliminar este contacto?');">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-  </div>
-
-{% endblock %}
-<!-- Finaliza el bloque de contenido 'content' -->
-
-
+    {% endblock %}
+</body>
+</html>

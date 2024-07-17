@@ -1,0 +1,72 @@
+/* Asegura que el contenedor ocupe toda la altura de la ventana */
+.vh-100 {
+    height: 100vh;
+}
+
+/* Estilos opcionales para mejorar la presentación */
+h2 {
+    font-size: 2.5rem; /* Tamaño de fuente grande para el encabezado */
+}
+
+p {
+    font-size: 1.25rem; /* Tamaño de fuente más grande para el párrafo */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.centered-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+
+.thead-dark th {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #454d55;
+}
+
+.img-thumbnail {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    padding: 0.25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+}
+
+.d-flex {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.d-flex img {
+    margin-right: 10px;
+}
+
+.d-flex h5 {
+    margin-bottom: 0;
+}
+
+.d-flex p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+
+

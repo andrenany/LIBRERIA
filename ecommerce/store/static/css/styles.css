@@ -1,75 +1,134 @@
-/* HOJA DE ESTILO */
-
 /* PALETA DE COLORES */
 :root {
-    --color1: #ff6f8d;
-    --color2: #554f1f;
-    --color3: #19302b;
-    --color4: #0b1416;
+    --color1: #b11131;
+    --color2: #882828;
+    --color3: #000000;
+    --color4: #000000; /* Cambiado a un tono más oscuro */
     --color5: #fefefe;
 }
 
-/* PAG INICIO (INDEX) */
-/* COLOR FONDO NARVAR */
+/* PÁGINA DE INICIO (INDEX) */
+
+/* COLOR FONDO NAVBAR */
 .navbar {
-    background-color: #19302b;
+    background-color: var(--color3); /* Negro */
 }
 
-/* TAMAÑO LOGO EN NARVAR */
+/* Tamaño y otros estilos para el logo */
 .logo {
-    height: 70px;
+    height: 7rem; /* Ajusta el tamaño del logo según necesites */
+    /* Otros estilos para el logo */
+}
+
+/* Color de las letras del navbar a blancas */
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--color5) !important; /* Blanco */
+}
+
+/* Color de las letras del navbar a rojo al pasar el mouse */
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--color1) !important; /* Rojo */
 }
 
 .navbar-nav .nav-link {
-    font-size: 20px; /* Tamaño de la letra */
-    font-family: "Playfair Display", serif; /* Cambiar la fuente */
+    font-size: 20px;
+    font-family: "Playfair Display", serif;
 }
 
 .navbar-nav .nav-link:hover {
-    color: gray !important; /* Cambia el color del texto al pasar el ratón sobre el enlace */
-    /*  important css tiene prioridad */
+    color: gray !important; /* Gris al pasar el mouse */
 }
 
 .navbar-nav .nav-link i {
-    font-size: 24px; /* Tamaño del icono */
+    font-size: 24px;
 }
 
-/* tamaño y estilo titulo */
+/* Espacio entre elementos de la barra de navegación */
+.navbar-nav .nav-item {
+    margin-right: 20px; /* Ajusta el espacio entre los elementos */
+}
+
+/* Estilo para la barra de búsqueda */
+.navbar-collapse form {
+    margin-left: auto; /* Mueve el formulario de búsqueda a la derecha */
+}
+
+/* Estilos personalizados para la barra de navegación */
+.custom-navbar {
+    background-color: #000000; /* Negro */
+}
+
+.custom-navbar .navbar-brand .logo {
+    max-height: 60px; /* Tamaño máximo del logo */
+}
+
+.custom-navbar .navbar-toggler {
+    border: none; /* Sin borde en el botón de hamburguesa */
+}
+
+.custom-navbar .navbar-toggler-icon {
+    background-color: #ffffff; /* Color del ícono de hamburguesa */
+}
+
+.custom-navbar .navbar-nav .nav-link {
+    color: #ffffff; /* Color del texto enlaces */
+    font-size: 18px; /* Tamaño de fuente de los enlaces */
+    font-family: 'Playfair Display', serif; /* Fuente */
+    padding: 10px 15px; /* Espaciado interno de los enlaces */
+}
+
+.custom-navbar .navbar-nav .nav-link:hover {
+    color: #ff6f8d; /* Color del texto al pasar el mouse */
+}
+
+.custom-navbar .navbar-nav .nav-item {
+    margin: 0 10px; /* Margen entre elementos de la barra de navegación */
+}
+
+.custom-navbar .navbar-nav .nav-item:last-child {
+    margin-right: 0; /* Sin margen a la derecha para el último elemento */
+}
+
+.custom-navbar .navbar-nav .nav-item .nav-link i {
+    margin-right: 5px; /* Espacio a la derecha del ícono */
+}
+
+.card-img-top {
+    transition: transform 0.2s ease-in-out;
+}
+
+.card-img-top:hover {
+    transform: scale(1.1); /* Zoom del 10% al pasar el ratón */
+}
+
+
+/* TÍTULOS Y SUBTÍTULOS */
 .subtitulos {
-    color: var(--color3);
-    font-size: 50px;
-    font-family: "Playfair Display", serif;
-    text-decoration: none; /* Quita el subrayado */
+    color: var(--color3); /* Negro */
     font-size: 40px;
+    font-family: "Playfair Display", serif;
+    text-decoration: none;
 }
 
 .subtitulos:hover {
-    color: gray;
-    margin-top: 30%;
+    color: gray; /* Gris al pasar el mouse */
 }
 
-.fotos {
-    width: 400px;
-    border-radius: 10%;
-}
-
-/* BOTON BUSCAR */
-/* Cambiar color del botón al pasar el ratón por encima */
+/* BOTÓN BUSCAR */
 .btn-buscar {
-    background-color: seagreen; /* verde */
-    border-color: var(--color5); /* también cambiamos el color del borde */
+    background-color: seagreen;
+    border-color: var(--color5); /* Blanco */
 }
 
 .btn-buscar:hover {
-    background-color: var(--color2);
-    border-color: var(--color4); /* también cambiamos el color del borde */
+    background-color: var(--color2); /* Rojo oscuro */
+    border-color: var(--color4); /* Negro */
 }
 
-/* slide */
-
+/* CARRUSEL */
 .carousel-item img {
-    max-width: 100%; /* Establecer el ancho máximo al 100% */
-    height: auto; /* Altura automática para mantener la relación de aspecto */
+    max-width: 100%;
+    height: auto;
     object-fit: cover;
 }
 
@@ -91,70 +150,73 @@
     font-family: "Playfair Display", serif;
 }
 
-.foto-producto {
-    max-width: 800px;
-}
-
-.h5 {
-    font-size: 50px;
+/* SECCIÓN CONTACTO */
+.contact-form {
+    padding: 60px;
     font-family: "Playfair Display", serif;
 }
 
-.parrafo {
-    font-size: 20px;
-    font-family: "Playfair Display", serif;
-}
-
-/* color boton volver inicio */
-.btn {
-    background-color: lightgrey;
-}
-
-/* SECCION CONTACTANOS */
-/* Estilo CSS para el formulario */
-.formulario {
-    background-size: cover; /* Ajusta la imagen para que cubra todo el contenedor */
-    background-position: center; /* Centra la imagen de fondo */
-    padding: 60px; /* Añade un poco de espacio alrededor del formulario */
-    font-family: "Playfair Display", serif; /* Cambiar la fuente */
-}
-
-
-
-.cont {
-    margin-left: 20%;
-    margin-right: 20%;
-}
-
-/* COLOR A BOTON FORMULARIO */
-.btn {
+/* BOTÓN EN FORMULARIO */
+.contact-form .btn {
     background-color: seagreen;
 }
 
-/* PIE DE PAGINA */
-.fin {
-    /* COLOR FONDO */
-    background-color: var(--color4);
-    /* TAMAÑO ALTURA */
-    max-height: 300px;
+/* PIE DE PÁGINA */
+.footer {
+    background-color: var(--color4); /* Negro */
 }
 
-/* TAMAÑO LOGO PIE DE PAGINA */
-.logo2 {
+.footer-logo {
     height: 150px;
 }
 
-/* ESTILOS PAGINA ARTISTAS */
+/* ESTILOS PARA LA PÁGINA DE ARTISTAS */
 .carousel-artistas {
     width: 530px;
     margin-top: 10%;
 }
 
 .card {
-    margin-top: auto;
+    margin-top: 30%;
 }
 
 .h6 {
     font-size: 50px;
     font-family: "Playfair Display", serif;
+}
+
+/* Estilos para la sección "" */
+#parrafo {
+    background: var(--color4) url('../img/manchas.png') top center no-repeat;
+    background-size: cover; /* Ajusta la imagen al tamaño del contenedor */
+    padding: 10rem 2rem; /* Espacio interno */
+    margin: 0 0 2rem 0; /* Espacio externo */
+    height: auto; /* Altura automática para ajustarse al contenido */
+}
+
+.parrafo-content {
+    max-width: 80%; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centrado horizontal */
+    color: var(--color5); /* Blanco */
+    text-align: justify; /* Justificación del texto */
+    padding-bottom: 6rem; /* Espacio adicional inferior para compensar el padding del contenedor */
+}
+
+.heading {
+    text-align: center; /* Centrado del título */
+    margin-bottom: 1.5rem; /* Espacio inferior */
+}
+
+.heading span {
+    color: var(--color1); /* Rojo */
+}
+
+h3 {
+    text-align: center; /* Centrado del subtítulo */
+    margin-bottom: 1rem; /* Espacio inferior */
+}
+
+.parrafo {
+    font-size: 1.1rem; /* Tamaño de fuente */
+    line-height: 1.6; /* Altura de línea */
 }

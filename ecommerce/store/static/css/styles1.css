@@ -1,0 +1,213 @@
+.container-negro {
+    background-color: #000; /* Color de fondo negro */
+    color: #fff; /* Color de texto blanco */
+    background-image: url('../img/fondosang.png'); /* Ruta de la imagen de fondo */
+    background-size: cover; /* Ajuste para cubrir el fondo */
+    background-position: center; /* Posición centrada de la imagen de fondo */
+    padding: 7rem 0; /* Ajuste del padding, 10rem arriba y abajo, 0 horizontalmente */
+    text-align: center; /* Texto centrado */
+    display: flex; /* Flexbox para centrar verticalmente */
+    flex-direction: column; /* Dirección de columna para centrar */
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+}
+
+.custom-h4 {
+    font-family: 'Times New Roman', serif; /* Fuente Times New Roman */
+    font-size: 1.9rem; /* Tamaño de fuente para h4 */
+    margin-bottom: 0.5rem; /* Espacio inferior para separación */
+}
+
+.custom-h5 {
+    font-family: 'Times New Roman', serif; /* Fuente Times New Roman */
+    font-size: 1.9rem; /* Tamaño de fuente para h5 */
+    color: #ffffff; /* Color de texto blanco */
+    margin-top: 0; /* Eliminar el margen superior */
+}
+
+.nombre-autor {
+    font-family: 'Times New Roman', serif; /* Fuente Times New Roman */
+    color: #ff0000; /* Color rojo para el nombre del autor */
+    display: block; /* Mostrar en bloque para separación */
+    margin-top: 10px; /* Espacio superior */
+}
+
+
+    .author-card {
+        background-color: #000;
+        color: #fff;
+        transition: transform 0.3s ease;
+        overflow: hidden;
+    }
+
+    .author-card:hover {
+        transform: scale(1.1);
+    }
+
+    .author-card .card-body {
+        padding: 20px;
+    }
+
+    .author-card h5,
+    .author-card p {
+        color: #fff;
+    }
+
+    .author-card img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+
+    .author-card:hover img {
+        transform: scale(1.1);
+    }
+
+
+    .contact-section {
+        background-color: #930d0d;
+        background-image: url('../img/manchas.png');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 100px 0 50px; /* Aumentado el padding superior */
+        margin-top: 50px; /* Añadido margen superior */
+    }
+    
+    .contact-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+    }
+    
+    .contact-section .form-control {
+        background-color: rgba(87, 82, 82, 0.425);
+        border: none;
+        color: white;
+        margin-bottom: 20px;
+    }
+    
+    .contact-section .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .contact-section .btn-primary {
+        background-color: #ff4500;
+        border: none;
+        padding: 10px 20px;
+        font-weight: bold;
+    }
+    
+    .contact-section .form-check-label {
+        font-size: 0.8rem;
+    }
+    
+    .contact-section a {
+        color: white;
+        text-decoration: underline;
+    }
+
+    footer {
+        background-color: #000000 !important; /* Asegura que el fondo sea negro */
+        padding: 20px 0 !important; /* Aumenta el padding vertical */
+        margin-top: 0 !important; /* Elimina cualquier margen superior */
+    }
+    
+    footer p {
+        font-size: 1.1rem; /* Aumenta ligeramente el tamaño de la fuente */
+        line-height: 1.5; /* Ajusta el espaciado entre líneas si es necesario */
+    }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+    }
+    
+    main {
+        flex: 1 0 auto; /* Hace que el contenido principal ocupe todo el espacio disponible */
+    }
+    
+    footer {
+        flex-shrink: 0; /* Evita que el footer se encoja */
+    }
+
+
+    
+    .book-card {
+        border: none;
+        margin-bottom: 20px;
+    }
+    .book-card img {
+        width: 100%;
+        border-radius: 8px;
+        transition: transform 0.3s;
+    }
+    .book-card img:hover {
+        transform: scale(1.05);
+    }
+    .book-title {
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+    .book-year {
+        color: #555;
+    }
+
+
+    .custom-footer {
+        background-color: #000000;
+        color: #808080;
+        font-size: 0.8rem;
+    }
+    
+    .custom-footer a {
+        color: #808080;
+        text-decoration: none;
+    }
+    
+    .custom-footer a:hover {
+        color: #ffffff;
+    }
+
+
+    .fondo-negro {
+        background-color: #000; /* Fondo negro */
+        padding: 60px 0; /* Ajusta el padding para expandir el fondo */
+        position: relative;
+        overflow: hidden; /* Para asegurar que los elementos no se salgan del contenedor */
+    }
+    
+    .footer-text {
+        color: #fff; /* Color del texto en el pie de página */
+        text-align: center;
+        margin-top: 20px;
+        position: relative;
+    }
+    
+    .footer-text a {
+        color: #fff; /* Color del enlace */
+        text-decoration: none; /* Quitar subrayado del enlace */
+    }
+    
+    .footer-text a:hover {
+        text-decoration: underline; /* Subrayar enlace al pasar el mouse */
+    }
+    
+    .corner-image {
+        width: 200px; /* Ajusta este valor según sea necesario para el tamaño de la imagen */
+        height: auto;
+        position: absolute;
+        bottom: -70px; /* Baja la imagen un poco más */
+        right: 0; /* Ajusta este valor según sea necesario para la posición horizontal */
+        margin-right: 10px; /* Espaciado desde el borde derecho */
+    }
+    
+    .reduced-mancha {
+        width: 30%; /* Ajusta este valor según sea necesario para agrandar la mancha */
+        height: auto;
+        position: absolute;
+        bottom: -50px; /* Ajusta este valor según sea necesario para bajar la mancha */
+        right: 0;
+    }
+    
+    

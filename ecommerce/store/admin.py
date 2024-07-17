@@ -22,15 +22,5 @@ class BookAdmin(admin.ModelAdmin):
     readonly_fields = ('created_at', 'updated_at')
 
 # Registro del modelo Cart
-@admin.register(Cart)
-class CartAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'session_key', 'created_at', 'updated_at')
-    search_fields = ('user__username', 'session_key')
-    readonly_fields = ('created_at', 'updated_at')
-
-# Registro del modelo CartItem
-@admin.register(CartItem)
-class CartItemAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'session_key', 'book', 'quantity', 'created_at', 'updated_at')
-    search_fields = ('user__username', 'session_key', 'book__title')
-    readonly_fields = ('created_at', 'updated_at')
+admin.site.register(Cart)
+admin.site.register(CartItem)

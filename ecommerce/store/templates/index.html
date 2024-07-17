@@ -1,202 +1,319 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <!-- Enlaza la biblioteca Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- BOOTSTRAP 5 CSS -->
+    <title>FEAR LIBRARY</title>
+    <!-- Enlace a Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Link a CSS -->
+    <!-- Enlace a Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Enlace a CSS personalizado -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <title>GRUPO CERO</title>
+    <link rel="stylesheet" href="{% static 'css/styles1.css' %}">
+    <!-- Google Fonts - Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- MENÚ CON LOGO -->
-    <!-- BARRA DE NAVEGACIÓN -->
-    <!-- que la barra se expanda-->
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
-          <a class="navbar-brand" href="#"></a>
-          <!-- botón de hamburguesa -->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <!--  Este es el ícono que se muestra dentro del botón de hamburguesa. -->
-              <span class="navbar-toggler-icon"></span>
-              <!-- BOTONES -->
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav w-100 justify-content-center">
-                  <!-- COLUMNA 1 -->
-                  <li class="nav-item mt-3">
-                      <!-- a=crea un enlace/crea una clase=estilo de bootstrap/ iconos en color blanco / link a wsp / icono de wsp-->
-                      <a class="nav-link text-white" href="#"><i class="fab fa-whatsapp"></i></a>
-                  </li>
-                  <li class="nav-item mt-3 ">
-                      <!-- a=crea un enlace/crea una clase=estilo de bootstrap/ iconos en color blanco / link a facebook/ icono de facebook-->
-                      <a class="nav-link text-white" href="#"><i class="fab fa-facebook"></i></a>
-                  </li>
-                  <li class="nav-item mt-3">
-                      <!-- a=crea un enlace/crea una clase=estilo de bootstrap/ iconos en color blanco / link a instagram/ icono de instagram-->
-                      <a class="nav-link text-white" href="#"><i class="fab fa-instagram"></i></a>
-                  </li>
-                  <!-- COLUMNA 2 (logo)-->
-                  <li class="nav-item d-flex justify-content-center   ms-auto">
-                      <img class="logo" src="{% static 'img/logo-blanco.png' %}" alt="">
-                  </li>
-                  <!-- MENÚ -->
-                  <!-- COLUMNA 3 -->
-                  <li class="nav-item d-flex justify-content-center   ms-auto mt-3">
-                      <!-- a=crea un enlace/crea una clase=estilo de bootstrap/ icono/texto en color blanco/texto-->
-                      <a class="nav-link text-white" href="#"><i class="fas fa-palette"></i>Artístas</a>
-                  </li>
-                  <!-- COLUMNA 4 -->
-                  <li class="nav-item d-flex justify-content-center   ms-auto mt-3">
-                      <!-- a=crea un enlace/crea una clase=estilo de bootstrap/ icono/texto en color blanco/ texto-->
-                      <a class="nav-link text-white" href="#"><i class="fas fa-paint-brush"></i>Técnicas</a>
-                  </li>
-                  <!-- COLUMNA 5 -->
-                  <li class="nav-item d-flex justify-content-center   ms-auto mt-3">
-                      <!-- a=crea un enlace/crea una clase=estilo de bootstrap/ icono/texto en color blanco/ texto-->
-                      <a class="nav-link text-white" href="#"><i class="fas fa-cubes"></i>Productos</a>
-                  </li>
-                  <!-- COLUMNA 6 -->
-                  <li class="nav-item d-flex justify-content-center   ms-auto mt-3">
-                    <!-- a=crea un enlace/crea una clase=estilo de bootstrap/ icono/texto en color blanco/ texto-->
-                    <a class="nav-link text-white" href="#"><i class="fas fa-user"></i>Login</a>
-                  </li>
-                  <!-- COLUMNA 7 -->
-                  <li class="nav-item d-flex justify-content-center   ms-auto mt-3">
-                    <!-- a=crea un enlace/crea una clase=estilo de bootstrap/ icono/texto en color blanco/ texto-->
-                    <a class="nav-link text-white" href="#"><i class="fas fa-clipboard-check"></i>Registro</a>
-                  </li>
-                  <!-- COLUMNA 8 -->
-                  <li class="nav-item justify-content-center   ms-auto mt-3">
-                    <form class="d-flex" role="search">
-                      <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                      <button class="btn btn-success btn-buscar" type="submit">Buscar</button>
-                    </form>
-                  </li>
-              </ul>
-          </div>
-      </div>
-  </nav>
 
-<!-- CARRUSEL FOTOS PRODUCTOS DESTACADOS -->
-<div id="carouselExampleDark" class="carousel carousel-dark slide mx-auto d-block">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner mx-auto">
-    <div class="carousel-item active" data-bs-interval="10000">
-      <img src="{% static 'images/libro1.jpg' %}" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block text-white">
-        <h3 class="h3 text-white">ESCULTURA EN MADERA</h3>
-        <a class="vin-detalle" href="#"><p class="detalle text-white">Ver detalles</p></a>        
-      </div>
+    {% comment %} barrita del navegador {% endcomment %}
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'img/logos.png' %}" alt="FEAR LIBRARY" class="logo">
+            </a>
+            <!-- Botón de hamburguesa -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Botones de redes sociales -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="https://wa.me/"><i class="fab fa-whatsapp fa-lg"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="https://facebook.com/"><i class="fab fa-facebook fa-lg"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="https://instagram.com/"><i class="fab fa-instagram fa-lg"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Menú de navegación -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'autores' %}">Autores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'generos' %}">Géneros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'libros' %}">Libros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'view_cart' %}">Carrito</a>
+                    </li>
+                </ul>
+                <!-- Botón de búsqueda -->
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    {% comment %} Termino de la barrita del navegador, funciona, no tocar {% endcomment %}
+
+
+    <!-- Carrusel de libros destacados -->
+
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+            <img src="{% static 'img/fondoit.png' %}" class="d-block w-100" alt="Libro 1">
+            <div class="carousel-caption d-none d-md-block text-white">
+                <h5>IT</h5>
+                <p>Cuidado con los globos rojos.</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="{% static 'img/fotos3.jpeg' %}" class="d-block w-100" alt="Libro 2">
+            <div class="carousel-caption d-none d-md-block text-white">
+                <h5>Doctor Sueño</h5>
+                <p>Los sueños siempre tienen un mensaje oculto.</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="{% static 'img/hadas.jpg' %}" class="d-block w-100" alt="Libro 3">
+            <div class="carousel-caption d-none d-md-block text-white">
+                <h5>Cuentos De Hadas</h5>
+                <p>Nunca se sabe con que te enfrentarás.</p>
+            </div>
+        </div>
     </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{% static 'images/libro2.jpg' %}" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block text-white">
-        <h3 class="h3 text-white">PRODUCTO 2</h3>
-        <a class="vin-detalle" href="#"><p class="detalle text-white">Ver detalles</p></a>     
-      </div>
+    <!-- Texto sobre la oscuridad y el miedo -->
+    <div class="carousel-overlay">
+        <div class="carousel-text">
+            <h2>Sobre la oscuridad y el miedo</h2>
+            <p>En la inmensidad de la noche se esconden secretos inimaginables. Descubre historias que te llevarán más allá de tus temores más profundos, donde cada página es un escalofrío que recorre tu espina dorsal.</p>
+        </div>
     </div>
-    <div class="carousel-item">
-      <img src="{% static 'images/libro3.jpg' %}" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block text-white">
-        <h3 class="h3 text-white">PRODUCTO 3</h3>
-        <a class="vin-detalle" href="#"><p class="detalle text-white">Ver detalles</p></a>     
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
 
-<!-- TEXTO NOSOTROS -->
-<h5 class="h5 text-center mt-5">NOSOTROS</h5>
-<div class="container-fluid text-center m-5 p-5">
-  <div class="row">
-    <p class="parrafo">Grupo Cero es un colectivo de artistas apasionados y diversos, que abarca una amplia gama de disciplinas artísticas, desde la pintura y la escultura hasta fotografía y el diseño gráfico. Nuestra misión es promover la creatividad y el arte en todas sus formas, ofreciendo productos únicos y experiencias enriquecedoras para nuestros clientes y seguidores.</p>
-    <p class="parrafo">Cada pieza que creamos está impregnada de nuestra pasión y dedicación, reflejando nuestra visión única del mundo y nuestra conexión con las emociones humanas más profundas. Ya sea que esté buscando decorar su hogar con obras de arte originales o regalar una pieza única a un ser querido, en Grupo Cero encontrará lo que necesita.</p>
-  </div>
-</div>
+  <!-- final del Carrusel de libros destacados -->
 
-<!-- SECCIÓN DESTACADOS -->
-<h5 class="h5 text-center mt-5">DESTACADOS</h5>
-<div class="container">
-  <div class="row mt-5">
-    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-      <div class="card h-100">
-        <img src="{% static 'images/libro1.jpg' %}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">ESCULTURA EN MADERA</h5>
-          <p class="card-text">Descubre nuestra colección de esculturas en madera, creadas por artistas talentosos.</p>
-          <a href="#" class="btn btn-primary">Ver más</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-      <div class="card h-100">
-        <img src="{% static 'images/libro2.jpg' %}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">PRODUCTO 2</h5>
-          <p class="card-text">Explora nuestro catálogo de productos destacados, diseñados para inspirarte.</p>
-          <a href="#" class="btn btn-primary">Ver más</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-      <div class="card h-100">
-        <img src="{% static 'images/libro3.jpg' %}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">PRODUCTO 3</h5>
-          <p class="card-text">Encuentra el regalo perfecto o completa tu colección con nuestras últimas creaciones.</p>
-          <a href="#" class="btn btn-primary">Ver más</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  {% comment %} preguntar a la cata que hace este style todo atravesado {% endcomment %}
+<style>
+    .carousel-caption {
+        color: white; /* Color blanco para el texto de los libros 1 y 2 */
+    }
 
-<!-- FOOTER -->
-<footer class="text-center text-white mt-5 p-5">
-  <div class="container">
+    .carousel-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+        color: white;
+        padding-left: 50px; /* Ajusta el padding izquierdo para el texto */
+    }
+
+    .carousel-text {
+        max-width: 50%; /* Ancho máximo para el texto */
+    }
+</style>
+
+
+<!-- TÍTULO "Fairy Tale" y detalles del libro -->
+<section class="parrafo" id="parrafo">
+    <div class="container">
+        <div class="row">
+            <!-- Detalles del libro a la izquierda -->
+            <div class="col-md-6">
+                <div class="detalle" style="color: white;">
+                    <h2 class="heading" style="color: white;">Fairy Tale</h2>
+                    <p style="text-align: left;">Autor: Stephen King | Fecha: 06/09/2022 | Editorial: Scribner</p>
+                    <p style="text-align: left;">Charlie Reade parece un chico normal de instituto, genial en béisbol y fútbol, un estudiante decente. Pero lleva una pesada carga. Su madre murió en un accidente de tráfico en el que el conductor se dio a la fuga, cuando él tenía diez años, y el dolor llevó a su padre a la bebida. Charlie aprendió a cuidar de sí mismo y de su padre. Entonces, a la edad de 17 años, Charlie conoce a un perro llamado Radar y a su anciano amo, Howard Bowditch, recluso en una gran casa en la cima de una gran colina, con un cobertizo cerrado en el patio trasero. De él salen a veces extraños sonidos.</p>
+                    <p style="text-align: left;">Fecha: 9 de junio 2024</p>
+                </div>
+            </div>
+            <!-- Foto del libro a la derecha -->
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <img src="{% static 'img/fairytale.png' %}" class="img-fluid" alt="Foto de libro">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de lo más reciente -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4" style="font-family: 'Spectral', serif; font-size: 2.5rem; font-weight: bold; color: #000;">Lo más reciente</h2>
+    <div class="mb-4">
+        <h3 class="text-center" style="font-family: 'Zen Kaku Gothic Antique', sans-serif; font-size: 1.8rem; color: #ff6f8d;">NOVELAS, CUENTOS, ENSAYOS...</h3>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-6 g-4 justify-content-center">
+        <!-- Libro 1 -->
+        <div class="col mb-4">
+            <img src="{% static 'img/eso.jpg' %}" class="card-img-top rounded" alt="Libro 1">
+        </div>
+        <!-- Libro 2 -->
+        <div class="col mb-4">
+            <img src="{% static 'img/Dracula.jpg' %}" class="card-img-top rounded" alt="Libro 2">
+        </div>
+        <!-- Repite para los otros libros -->
+        <!-- Libro 3 -->
+        <div class="col mb-4">
+            <img src="{% static 'img/el-resplandor.jpg' %}" class="card-img-top rounded" alt="Libro 3">
+        </div>
+        <!-- Libro 4 -->
+        <div class="col mb-4">
+            <img src="{% static 'img/casa.jpg' %}" class="card-img-top rounded" alt="Libro 4">
+        </div>
+        <!-- Libro 5 -->
+        <div class="col mb-4">
+            <img src="{% static 'img/haunted.webp' %}" class="card-img-top rounded" alt="Libro 5">
+        </div>
+        <!-- Libro 6 -->
+        <div class="col mb-4">
+            <img src="{% static 'img/coraline.jpg' %}" class="card-img-top rounded" alt="Libro 6">
+        </div>
+    </div>
+    <!-- Enlace "Todas las obras" -->
     <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-        <h5 class="h5">Sobre Nosotros</h5>
-        <p>Somos un colectivo de artistas apasionados, comprometidos con la creatividad y la expresión artística en todas sus formas.</p>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-        <h5 class="h5">Contacto</h5>
-        <p>Email: info@grupocero.com<br>Teléfono: +1234567890</p>
-      </div>
-      <div class="col-lg-4 col-md-12 col-sm-12">
-        <h5 class="h5">Síguenos</h5>
-        <a href="#" class="text-white"><i class="fab fa-facebook fa-2x mx-2"></i></a>
-        <a href="#" class="text-white"><i class="fab fa-instagram fa-2x mx-2"></i></a>
-        <a href="#" class="text-white"><i class="fab fa-twitter fa-2x mx-2"></i></a>
-      </div>
+        <div class="col-12 text-center mt-4">
+            <a href="{% url 'libros' %}" class="btn btn-outline-dark btn-lg">
+                <i class="fas fa-chevron-circle-right me-2"></i> Todos los libros
+            </a>
+        </div>
     </div>
-  </div>
-  <p class="mt-3">© 2024 Grupo Cero. Todos los derechos reservados.</p>
+</div>
+
+<!-- Sección de frase -->
+<div class="container-negro mt-4">
+    <div class="col text-center text-white texto-principal">
+        <h4 class="custom-h4">"There's nothing like staying up all night reading a good book."</h4>
+        <h5 class="custom-h5">There's nothing more rewarding."</h5>
+        <span class="nombre-autor" style="margin-bottom: 1rem;">Stephen King</span>
+    </div>
+</div>
+
+<!-- Sección de autores-->
+<div class="container mt-4">
+    <h2 class="text-center mb-3">Autores Destacados</h2>
+    <!-- Texto sobre los autores destacados -->
+    <div class="row mb-2">
+        <div class="col text-center">
+            <p class="text-muted">
+                Los autores destacados han sido reconocidos por su habilidad para causar terror con sus libros. A través de narrativas envolventes y personajes memorables, han logrado captar la atención de los lectores y explorar los aspectos más oscuros de la condición humana. Utilizando el horror como una lente para examinar las complejidades de la psique humana, estos escritores han dejado una marca indeleble en el género, desafiando y redefiniendo constantemente los límites de lo que puede ser considerado inquietante y perturbador.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Card del Autor 1 -->
+        <div class="col-md-4">
+            <div class="card author-card mb-3">
+                <div class="card-body text-center">
+                    <img src="{% static 'img/stephen.avif' %}" class="img-fluid mb-3" alt="Autor 1">
+                    <h5 class="card-title">Stephen King</h5>
+                    <p class="card-text">Stephen King se ha destacado como uno de los maestros contemporáneos del terror y lo sobrenatural. Ha creado un universo de historias que exploran los miedos.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Card del Autor 2 -->
+        <div class="col-md-4">
+            <div class="card author-card mb-3">
+                <div class="card-body text-center">
+                    <img src="{% static 'img/william.webp' %}" class="img-fluid mb-3" alt="Autor 2">
+                    <h5 class="card-title">William Peter Blatty</h5>
+                    <p class="card-text">William Peter Blatty se ganó su reconocimiento con la publicación de "El Exorcista", una novela que redefinió el género del horror.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Card del Autor 3 -->
+        <div class="col-md-4">
+            <div class="card author-card mb-3">
+                <div class="card-body text-center">
+                    <img src="{% static 'img/neil.webp' %}" class="img-fluid mb-3" alt="Autor 3">
+                    <h5 class="card-title">Neil Gaiman</h5>
+                    <p class="card-text">Neil Gaiman ha sido aclamado por su capacidad para tejer historias que entrelazan lo mágico con lo mundano, creando universos ricamente imaginativos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Enlace "Todos los Autores" -->
+    <div class="row">
+        <div class="col-12 text-center mt-1">
+            <a href="{% url 'autores' %}" class="btn btn-outline-dark btn-lg">
+                <i class="fas fa-chevron-circle-right me-2"></i> Todos los autores
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Sección de contacto -->
+<section id="contact" class="contact-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Contáctate con nosotros, respondemos en breve.</h2>
+            </div>
+            <div class="col-md-6">
+                <h2>Contacto</h2>
+                <form method="POST" action="{% url 'contacto_nuevo' %}" id="contactForm" class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="name" name="nombre" placeholder="Tu Nombre" required>
+                        <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Tu Email" required>
+                        <div class="invalid-feedback">Por favor, ingresa una dirección de correo electrónico válida.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Mensaje</label>
+                        <textarea class="form-control" id="message" name="mensaje" rows="4" placeholder="Tu Mensaje" required></textarea>
+                        <div class="invalid-feedback">Por favor, ingresa tu mensaje.</div>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="marketing-permission" name="marketing_permission">
+                        <label class="form-check-label" for="marketing-permission">Doy mi consentimiento para estar en contacto por correo electrónico utilizando la información que he proporcionado en este formulario con fines de noticias, actualizaciones y marketing.</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">ENVIAR</button>
+                </form>
+                <p class="mt-3"><a href="#" class="text-white">Política de Privacidad</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Pie de página -->
+<footer class="custom-footer text-white text-center p-4">
+    <p class="mb-0">&copy; 2024 FEAR LIBRARY. Todos los derechos reservados.</p>
 </footer>
 
-<!-- BOOTSTRAP 5 JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-dtK3gox6xzB+rnG5c2sYbA8yZC2vvCv8FQ/dxJkrL+Oqh2Qvysaf/gUK0U6Cuv5r" crossorigin="anonymous"></script>
-<!-- ICONOS FONT AWESOME -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-   

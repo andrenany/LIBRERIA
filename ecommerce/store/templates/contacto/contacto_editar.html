@@ -1,137 +1,140 @@
 {% extends 'base_generic.html' %}
-<!-- Extiende de la plantilla base_generic.html, heredando su estructura y estilo básico -->
+{% load static %}
 
-{% block content %}
-<!-- Comienza un bloque de contenido denominado 'content' -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    {% block content %}
+    <style>
+        body {
+            background-color: #b11131;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-<style>
-  /* Estilos para el formulario de edición de contacto */
-  .edit-contact-container {
-    background-color: #4b0082; /* Fondo morado oscuro */
-    padding: 20px; /* Relleno de 20px en todos los lados */
-    border-radius: 10px; /* Bordes redondeados de 10px */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    margin: 0 auto; /* Centrado horizontal */
-    max-width: 600px; /* Ancho máximo */
-    margin-top: 50px; /* Margen superior */
-    color: #fff; /* Color de texto blanco */
-    text-align: center; /* Alineación central del texto */
-  }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("{% static 'img/manchas.png' %}");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: -1;
+        }
 
-  .edit-contact-container h2 {
-    margin-bottom: 20px; /* Margen inferior de 20px */
-  }
+        .edit-contact-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            max-width: 500px;
+            width: 90%;
+            color: #fff;
+        }
 
-  .edit-contact-container .input-group-text {
-    font-size: 2rem; /* Tamaño de ícono aumentado */
-    color: #fff; /* Color de ícono blanco */
-    background-color: transparent; /* Fondo transparente */
-    border: none; /* Sin borde */
-    margin-right: 10px; /* Margen derecho de 10px */
-  }
+        .edit-contact-container h2 {
+            margin-bottom: 25px;
+            font-size: 2em;
+            text-align: center;
+        }
 
-  .edit-contact-container .btn-primary {
-    background-color: #ff69b4; /* Color rosa para el botón primario */
-    border-color: #ff69b4; /* Borde rosa */
-  }
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-  /* Estilo para hacer que las barras de entrada tengan el mismo ancho */
-  .edit-contact-container .input-group {
-    width: 100%; /* Ancho del 100% para ocupar todo el espacio disponible */
-  }
-</style>
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
 
-<div class="container mt-5">
-  <!-- Contenedor de Bootstrap con margen superior (mt-5) para espaciado -->
-  <div class="edit-contact-container">
-    <!-- Contenedor del formulario de edición de contacto con estilos personalizados -->
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
 
-    <h2>Editar Contacto</h2>
-    <!-- Encabezado de nivel 2 -->
+        textarea.form-control {
+            resize: vertical;
+            min-height: 80px;
+        }
 
-    <form method="POST" class="needs-validation" novalidate>
-      <!-- Formulario HTML con método POST para enviar datos al servidor -->
-      <!-- Clase 'needs-validation' de Bootstrap para validación personalizada -->
-      <!-- Atributo 'novalidate' para desactivar la validación nativa del navegador -->
+        .btn-container {
+            text-align: center;
+            margin-top: 25px;
+        }
 
-      {% csrf_token %}
-      <!-- Token CSRF para proteger contra ataques de falsificación de solicitudes entre sitios -->
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 5px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 20px;
+            transition: background-color 0.3s, opacity 0.3s;
+        }
 
-      <div class="mb-3">
-        <!-- Div con margen inferior (mb-3) -->
-        <label for="{{ form.nombre.id_for_label }}" class="visually-hidden">Nombre</label>
-        <!-- Etiqueta del campo 'nombre' con clase visually-hidden para ocultarla visualmente pero mantenerla accesible para asistentes de pantalla -->
-        <div class="input-group mb-3">
-          <!-- Grupo de entrada de Bootstrap con margen inferior (mb-3) -->
-          <span class="input-group-text"><i class="fas fa-user"></i></span>
-          <!-- Ícono de usuario -->
-          {{ form.nombre }}
-          <!-- Renderiza el campo 'nombre' del formulario -->
-        </div>
-        <div class="invalid-feedback">
-          <!-- Div para mostrar mensajes de retroalimentación si el campo es inválido -->
-          {% if form.nombre.errors %}
-            {% for error in form.nombre.errors %}
-              <span>{{ error }}</span><br>
-            {% endfor %}
-          {% endif %}
-          <!-- Renderiza los errores del campo 'nombre' del formulario -->
-        </div>
-      </div>
+        .btn-primary, .btn-secondary {
+            background-color: #b11131;
+            color: white;
+        }
 
-      <div class="mb-3">
-        <!-- Div con margen inferior (mb-3) -->
-        <label for="{{ form.email.id_for_label }}" class="visually-hidden">Email</label>
-        <!-- Etiqueta del campo 'email' con clase visually-hidden para ocultarla visualmente pero mantenerla accesible para asistentes de pantalla -->
-        <div class="input-group mb-3">
-          <!-- Grupo de entrada de Bootstrap con margen inferior (mb-3) -->
-          <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-          <!-- Ícono de sobre (email) -->
-          {{ form.email }}
-          <!-- Renderiza el campo 'email' del formulario -->
-        </div>
-        <div class="invalid-feedback">
-          <!-- Div para mostrar mensajes de retroalimentación si el campo es inválido -->
-          {% if form.email.errors %}
-            {% for error in form.email.errors %}
-              <span>{{ error }}</span><br>
-            {% endfor %}
-          {% endif %}
-          <!-- Renderiza los errores del campo 'email' del formulario -->
-        </div>
-      </div>
+        .btn:hover {
+            opacity: 0.8;
+        }
+    </style>
 
-      <div class="mb-3">
-        <!-- Div con margen inferior (mb-3) -->
-        <label for="{{ form.mensaje.id_for_label }}" class="visually-hidden">Mensaje</label>
-        <!-- Etiqueta del campo 'mensaje' con clase visually-hidden para ocultarla visualmente pero mantenerla accesible para asistentes de pantalla -->
-        <div class="input-group mb-3">
-          <!-- Grupo de entrada de Bootstrap con margen inferior (mb-3) -->
-          <span class="input-group-text"><i class="fas fa-comment"></i></span>
-          <!-- Ícono de comentario (mensaje) -->
-          {{ form.mensaje }}
-          <!-- Renderiza el campo 'mensaje' del formulario -->
-        </div>
-        <div class="invalid-feedback">
-          <!-- Div para mostrar mensajes de retroalimentación si el campo es inválido -->
-          {% if form.mensaje.errors %}
-            {% for error in form.mensaje.errors %}
-              <span>{{ error }}</span><br>
-            {% endfor %}
-          {% endif %}
-          <!-- Renderiza los errores del campo 'mensaje' del formulario -->
-        </div>
-      </div>
+    <div class="edit-contact-container">
+        <h2>Editar Contacto</h2>
 
-      <button type="submit" class="btn btn-primary">Guardar</button>
-      <!-- Botón de envío con clases de Bootstrap para estilizarlo como un botón primario -->
+        <form method="POST" class="needs-validation" novalidate>
+            {% csrf_token %}
 
-      <a href="{% url 'contacto_lista' %}" class="btn btn-secondary">Cancelar</a>
-      <!-- Enlace con clases de Bootstrap para estilizarlo como un botón secundario -->
-      <!-- Redirige a la vista de lista de contactos si se hace clic en cancelar -->
-    </form>
-  </div>
-</div>
+            <div class="form-group">
+                <label for="{{ form.nombre.id_for_label }}" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="{{ form.nombre.id_for_label }}" name="{{ form.nombre.name }}" value="{{ form.nombre.value|default:'' }}">
+            </div>
 
-{% endblock %}
-<!-- Finaliza el bloque de contenido 'content' -->
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}" class="form-label">Correo</label>
+                <input type="email" class="form-control" id="{{ form.email.id_for_label }}" name="{{ form.email.name }}" value="{{ form.email.value|default:'' }}">
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.mensaje.id_for_label }}" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="{{ form.mensaje.id_for_label }}" name="{{ form.mensaje.name }}" rows="3">{{ form.mensaje.value|default:'' }}</textarea>
+            </div>
+
+            <div class="btn-container">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <a href="{% url 'contacto_lista' %}" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

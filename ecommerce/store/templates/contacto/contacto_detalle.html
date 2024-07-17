@@ -1,72 +1,146 @@
 {% extends 'base_generic.html' %}
-<!-- Extiende de la plantilla base_generic.html, heredando su estructura y estilo básico -->
+{% load static %}
 
-{% block content %}
-<!-- Comienza un bloque de contenido denominado 'content' -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    {% block content %}
+    <style>
+        body {
+            background-color: #b11131;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-<style>
-  /* Estilos para el detalle del contacto */
-  .contact-detail-container {
-    background-color: #4b0082; /* Fondo morado oscuro */
-    padding: 20px; /* Relleno de 20px en todos los lados */
-    border-radius: 10px; /* Bordes redondeados de 10px */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    margin: 0 auto; /* Centrado horizontal */
-    max-width: 600px; /* Ancho máximo */
-    margin-top: 50px; /* Margen superior */
-    color: #fff; /* Color de texto blanco */
-    text-align: center; /* Alineación central del texto */
-  }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("{% static 'img/mancha2.png' %}");
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
 
-  .contact-detail-container h2 {
-    margin-bottom: 20px; /* Margen inferior de 20px */
-  }
+        .contact-detail-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            width: 600px;
+            color: #fff;
+            text-align: center;
+        }
 
-  .contact-detail-container p {
-    margin-bottom: 10px; /* Margen inferior de 10px para párrafos */
-  }
+        .contact-detail-container h2 {
+            margin-bottom: 20px;
+        }
 
-  .contact-detail-container .btn {
-    margin-top: 10px; /* Margen superior de 10px para botones */
-    margin-right: 10px; /* Margen derecho de 10px para botones */
-  }
-</style>
+        .contact-detail-container p {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
 
-<div class="container mt-5">
-  <!-- Contenedor de Bootstrap con margen superior (mt-5) para espaciado -->
-  <div class="contact-detail-container">
-    <!-- Contenedor del detalle del contacto con estilos personalizados -->
+        .contact-detail-container p span {
+            margin-left: 10px;
+        }
 
-    <h2>Detalle del Contacto</h2>
-    <!-- Encabezado de nivel 2 -->
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
 
-    <p><strong>Nombre:</strong> {{ contacto.nombre }}</p>
-    <!-- Párrafo que muestra el nombre del contacto con formato en negrita -->
+        .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 5px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 20px;
+            transition: background-color 0.3s, opacity 0.3s;
+        }
 
-    <p><strong>Email:</strong> {{ contacto.email }}</p>
-    <!-- Párrafo que muestra el email del contacto con formato en negrita -->
+        .btn-primary, .btn-danger, .btn-secondary {
+            background-color: #b11131;
+            color: white;
+        }
 
-    <p><strong>Mensaje:</strong> {{ contacto.mensaje }}</p>
-    <!-- Párrafo que muestra el mensaje del contacto con formato en negrita -->
+        .btn:hover {
+            opacity: 0.8;
+        }
 
-    <a href="{% url 'contacto_editar' contacto.pk %}" class="btn btn-primary">Editar</a>
-    <!-- Enlace que redirige a la vista de edición del contacto, estilizado como un botón primario -->
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    <form method="POST" action="{% url 'contacto_eliminar' contacto.pk %}" style="display:inline;">
-      <!-- Formulario para eliminar el contacto, utilizando el método POST -->
-      <!-- El atributo 'style="display:inline;"' mantiene el formulario en línea con otros elementos -->
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
 
-      {% csrf_token %}
-      <!-- Token CSRF para proteger contra ataques de falsificación de solicitudes entre sitios -->
+        .form-container input, .form-container textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
 
-      <button type="submit" class="btn btn-danger">Eliminar</button>
-      <!-- Botón de envío con clases de Bootstrap para estilizarlo como un botón de peligro (rojo) -->
-    </form>
+        .form-container input[type="submit"] {
+            width: auto;
+            background-color: #b11131;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, opacity 0.3s;
+        }
 
-    <a href="{% url 'contacto_lista' %}" class="btn btn-secondary">Volver a la lista</a>
-    <!-- Enlace que redirige a la vista de lista de contactos, estilizado como un botón secundario -->
-  </div>
-</div>
+        .form-container input[type="submit"]:hover {
+            opacity: 0.8;
+        }
 
-{% endblock %}
-<!-- Finaliza el bloque de contenido 'content' -->
+    </style>
+
+    <div class="container mt-5">
+        <div class="contact-detail-container">
+            <h2>Detalle del Contacto</h2>
+            <p><strong>Nombre:</strong> <span>{{ contacto.nombre }}</span></p>
+            <p><strong>Email:</strong> <span>{{ contacto.email }}</span></p>
+            <p><strong>Mensaje:</strong> <span>{{ contacto.mensaje }}</span></p>
+            <div class="btn-container">
+                <a href="{% url 'contacto_editar' contacto.pk %}" class="btn btn-primary">Editar</a>
+                <form method="POST" action="{% url 'contacto_eliminar' contacto.pk %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+                <a href="{% url 'contacto_lista' %}" class="btn btn-secondary">Volver a la lista</a>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>
+

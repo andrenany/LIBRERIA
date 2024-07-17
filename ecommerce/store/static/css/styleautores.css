@@ -1,0 +1,92 @@
+
+    :root {
+        --bg-color-body: #000000; /* Fondo negro */
+        --text-color-body: #FFFFFF; /* Texto blanco */
+        --bg-color-card: #000000; /* Fondo negro de la tarjeta */
+        --border-color-card: #FFFFFF; /* Borde blanco de 1px */
+        --btn-color-primary: #8B0000; /* Botones rojos */
+        --btn-hover-color-primary: #6a0000; /* Cambio de color al pasar el mouse */
+        --bg-color-modal: #000000; /* Fondo negro del modal */
+        --text-color-modal: #FFFFFF; /* Texto blanco en el modal */
+        --close-btn-color: #FFFFFF; /* Color de la cruz de cierre blanca */
+    }
+
+    body {
+        background-color: var(--bg-color-body);
+        color: var(--text-color-body);
+    }
+
+    .titulo-autores {
+        max-width: 400px;
+        height: auto;
+    }
+
+    .card {
+        background-color: var(--bg-color-card);
+        color: var(--text-color-body); /* Texto blanco */
+        border: 1px solid var(--border-color-card); /* Borde blanco de 1px */
+        border-radius: 10px; /* Bordes redondeados */
+        height: 100%;
+        max-height: 320px;
+        overflow: hidden;
+    }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow-y: auto;
+    }
+
+    .card-text {
+        flex-grow: 1;
+        font-size: 0.9rem;
+    }
+
+    .contact-section {
+        margin-top: 50px;
+        padding: 50px 0;
+    }
+
+    .contact-section h2 {
+        margin-bottom: 20px;
+    }
+
+    .btn-primary {
+        background-color: var(--btn-color-primary); /* Botones rojos */
+        color: var(--text-color-body); /* Texto blanco */
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--btn-hover-color-primary); /* Cambio de color al pasar el mouse */
+    }
+
+    .modal-content {
+        background-color: var(--bg-color-modal); /* Fondo negro del modal */
+        color: var(--text-color-modal); /* Texto blanco en el modal */
+    }
+
+    .modal-header {
+        border-bottom: none; /* Sin borde en la parte inferior del encabezado */
+    }
+
+    .btn-close {
+        color: var(--close-btn-color); /* Color de la cruz de cierre blanca */
+    }
+
+    @media (max-width: 768px) {
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .contact-section {
+            margin-top: 20px;
+        }
+    }
+

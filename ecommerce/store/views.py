@@ -1,7 +1,9 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import AnonymousUser
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Book, Contacto,Author,Genre,Cart,CartItem
-from .forms import RegistroForm, ContactoForm
+from .forms import ContactoForm
 
 ##este muestra el index.html
 def index(request):
@@ -24,22 +26,22 @@ def libro_detalle(request, book_id):
     libro = get_object_or_404(Book, id=book_id)
     return render(request, 'libro_detalle.html', {'libro': libro})
 
-def add_to_cart(request, book_id):
-    book = get_object_or_404(Book, id=book_id)
-    cart, created = Cart.objects.get_or_create(user=request.user, session_key=request.session.session_key)
-    cart_item, created = CartItem.objects.get_or_create(book=book, cart=cart)
-    cart_item.quantity += 1
-    cart_item.save()
-    return redirect('view_cart')
 
-@login_required
-def view_cart(request):
-    try:
-        cart = Cart.objects.get(user=request.user)
-    except Cart.DoesNotExist:
-        cart = None
-        print("No se encontró un carrito para el usuario:", request.user)
+
+def add_to_cart(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    cart, created = Cart.objects.get_or_create(user=request.user)
     
+    # Verificar si el libro ya está en el carrito
+    cart_item, cart_item_created = CartItem.objects.get_or_create(cart=cart, book=book)
+    
+    if not cart_item_created:
+        cart_item.quantity += 1
+        cart_item.save()
+    
+    return redirect('view_cart') 
+def view_cart(request):
+    cart = Cart.objects.filter(user=request.user).first()  # Obtener el carrito del usuario actual
     context = {
         'cart': cart
     }

@@ -55,25 +55,15 @@ class Contacto(models.Model):
     def __str__(self):
         return self.nombre
 
-# MODELO CARRITO
 class Cart(models.Model):
-    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
-    session_key = models.CharField(max_length=40, null=True, blank=True)
-    items = models.ManyToManyField('CartItem', blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # Otros campos del carrito, si los tienes
 
-    def __str__(self):
-        return f"Cart ({self.id})"
-
-# MODELO ITEM DEL CARRITO
 class CartItem(models.Model):
-    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
-    session_key = models.CharField(max_length=40, null=True, blank=True)
+    cart = models.ForeignKey(Cart, related_name='items', on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=1)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    quantity = models.IntegerField(default=1)
+    # Otros campos si los tienes
 
-    def __str__(self):
-        return f"{self.book.title} (x{self.quantity})"
+    def subtotal(self):
+        return self.book.price * self.quantity
