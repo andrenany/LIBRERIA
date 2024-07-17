@@ -1,0 +1,59 @@
+body {
+    background-color: #000000; /* Fondo negro */
+    color: #FFFFFF; /* Texto blanco */
+}
+.titulo-libros {
+    max-width: 400px; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+}
+.card {
+    background-color: #000000; /* Fondo negro de la tarjeta */
+    color: #FFFFFF; /* Texto blanco */
+    border: 1px solid #FFFFFF; /* Borde blanco de 1px */
+    border-radius: 10px; /* Bordes redondeados */
+    max-width: 100%;
+    position: relative;
+}
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+.price-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro con transparencia */
+    color: #FFFFFF; /* Texto blanco */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.btn-primary {
+    background-color: #8B0000; /* Botones rojos */
+    color: #ffffff; /* Texto blanco */
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #6a0000; /* Cambio de color al pasar el mouse */
+}
+.btn-success {
+    background-color: #8B0000; /* Botón de agregar al carrito rojo */
+    border: none;
+}
+.btn-success:hover {
+    background-color: #6a0000; /* Cambio de color al pasar el mouse */
+}
+.modal-content {
+    background-color: #000000; /* Fondo negro del modal */
+    color: #FFFFFF; /* Texto blanco en el modal */
+}
+.modal-header {
+    border-bottom: none; /* Sin borde en la parte inferior del encabezado */
+}
+.btn-close {
+    color: #FFFFFF; /* Color de la cruz de cierre blanca */
+    font-size: 1.5rem;
+}
+.btn-close:hover {
+    color: #CCCCCC; /* Cambio de color al pasar el mouse */
+    text-decoration: none; /* Sin subrayado */
+}
