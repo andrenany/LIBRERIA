@@ -69,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'store.templatetags.context_processor.cart_context_processor', 
             ],
         },
     },
@@ -138,3 +139,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Configuración de URL de inicio de sesión y cierre de sesión en línea 160 aprox
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+CART_SESSION_ID = 'cart'

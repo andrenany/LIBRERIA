@@ -126,13 +126,14 @@
     </div>
 </nav>
 
-{% load multiply %}  <!-- Aquí se carga el filtro personalizado -->
+
+{% load multiply %}
 
 {% block content %}
 <div class="container">
     <h1>Carrito de Compras</h1>
     <h2>Tus productos:</h2>
-    {% if cart.items.count > 0 %}
+    {% if cart_items %}
         <table class="table">
             <thead>
                 <tr>
@@ -144,22 +145,23 @@
                 </tr>
             </thead>
             <tbody>
-                {% for item in cart.items.all %}
+                {% for item in cart_items %}
                 <tr>
                     <td>{{ item.book.title }}</td>
                     <td>${{ item.book.price }}</td>
                     <td>{{ item.quantity }}</td>
                     <td>${{ item.book.price|multiply:item.quantity }}</td>
                     <td>
-                        <a href="{% url 'remove_from_cart' item.id %}" class="btn btn-danger">Eliminar</a>
+                        <a href="{% url 'eliminar_producto' item.id %}" class="btn btn-danger">Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <h3>Total: ${{ cart.total }}</h3>
+        <h3>Total: ${{ total_acumulado }}</h3>
         <a href="#" class="btn btn-primary">Proceder al Pago</a>
         <a href="{% url 'libros' %}" class="btn btn-secondary">Seguir Comprando</a>
+        <a href="{% url 'limpiar_carrito' %}" class="btn btn-danger">Limpiar Carrito</a>  <!-- Nuevo botón para limpiar el carrito -->
     {% else %}
         <div class="empty-cart-container">
             <div class="empty-cart-content">
@@ -170,7 +172,9 @@
         </div>
     {% endif %}
 </div>
+
 {% endblock %}
+
 
 
 <!-- Sección de contacto -->

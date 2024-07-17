@@ -1,16 +1,19 @@
 from django.urls import path, include
 from store import views
 from django.contrib.auth import views as auth_views
+from .views import agregar_producto, eliminar_producto, restar_producto, limpiar_carrito
+
 
 urlpatterns = [
     path('', views.index, name='index'),
     path('autores/', views.autores, name='autores'),
     path('generos/', views.generos, name='generos'),
     path('libros/', views.libros, name='libros'),
-    path('libro/<int:book_id>/', views.libro_detalle, name='libro_detalle'),
-    path('add_to_cart/<int:book_id>/', views.add_to_cart, name='add_to_cart'),
+    path('agregar/<int:book_id>/', agregar_producto, name='agregar_producto'),
+    path('eliminar/<int:book_id>/', eliminar_producto, name='eliminar_producto'),
+    path('restar/<int:book_id>/', restar_producto, name='restar_producto'),
+    path('limpiar/', limpiar_carrito, name='limpiar_carrito'),
     path('carrito/', views.view_cart, name='view_cart'),
-    path('remove_from_cart/<int:item_id>/', views.remove_from_cart, name='remove_from_cart'),
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('accounts/', include('django.contrib.auth.urls')),
     

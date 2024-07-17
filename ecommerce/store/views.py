@@ -1,9 +1,8 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import AnonymousUser
-from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Book, Contacto,Author,Genre,Cart,CartItem
+from .models import Book, Contacto,Author,Genre, Cart,CartItem
 from .forms import ContactoForm
+from store.Carrito import Carrito
 
 ##este muestra el index.html
 def index(request):
@@ -21,46 +20,37 @@ def generos(request):
 def libros(request):
     libros = Book.objects.all()
     return render(request, 'libros.html', {'libros': libros})
-##y aca va el detalle
-def libro_detalle(request, book_id):
-    libro = get_object_or_404(Book, id=book_id)
-    return render(request, 'libro_detalle.html', {'libro': libro})
 
 
-
-def add_to_cart(request, book_id):
-    book = get_object_or_404(Book, pk=book_id)
+def agregar_producto(request, book_id):
+    book = get_object_or_404(Book, id=book_id)
     cart, created = Cart.objects.get_or_create(user=request.user)
-    
-    # Verificar si el libro ya está en el carrito
-    cart_item, cart_item_created = CartItem.objects.get_or_create(cart=cart, book=book)
-    
-    if not cart_item_created:
+    cart_item, created = CartItem.objects.get_or_create(cart=cart, book=book)
+
+    if not created:
         cart_item.quantity += 1
         cart_item.save()
-    
-    return redirect('view_cart') 
-def view_cart(request):
-    cart = Cart.objects.filter(user=request.user).first()  # Obtener el carrito del usuario actual
-    context = {
-        'cart': cart
-    }
-    return render(request, 'carrito.html', context)
 
-def remove_from_cart(request, item_id):
-    cart_item = get_object_or_404(CartItem, id=item_id)
-    cart_item.delete()
     return redirect('view_cart')
 
-def registro(request):
-    if request.method == 'POST':
-        form = RegistroForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('login')
-    else:
-        form = RegistroForm()
-    return render(request, 'registro.html', {'form': form})
+def eliminar_producto(request, book_id):
+    cart_item = get_object_or_404(CartItem, id=book_id)  # Asegura que book_id corresponde al ID de CartItem
+    cart_item.delete()  # Elimina el CartItem encontrado
+    return redirect('view_cart')  # Redirige de vuelta a la vista del carrito
+
+def restar_producto(request, book_id):
+    carrito = Carrito(request)
+    book = get_object_or_404(Book, id=book_id)
+    carrito.restar_cantidad(book)
+    return redirect('view_cart')
+
+def limpiar_carrito(request):
+    carrito = Carrito(request)
+    carrito.limpiar_carrito()
+    return redirect('view_cart')
+
+def view_cart(request):
+    return render(request, 'carrito.html')
 
 def contacto_nuevo(request):
     if request.method == "POST":

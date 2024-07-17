@@ -154,8 +154,18 @@
                     <div class="price-tag">
                         ${{ book.price }}
                     </div>
+                    <div class="stock">
+                        Stock: {{ book.stock }}
+                    </div>
                     <div class="d-flex justify-content-between mt-2">
-                        <button class="btn btn-primary btn-sm me-2 btn-show-details" data-book-id="{{ book.id }}" data-book-title="{{ book.title }}" data-book-description="{{ book.description }}" data-book-author="{{ book.author.name }}" data-book-genre="{{ book.genre.name }}">Ver Detalle</button>
+                        <button class="btn btn-primary btn-sm me-2 btn-show-details"
+                                data-book-id="{{ book.id }}"
+                                data-bs-toggle="modal"
+                                data-bs-target="#bookDetailModal"
+                                data-book-title="{{ book.title }}"
+                                data-book-description="{{ book.description }}"
+                                data-book-author="{{ book.author.name }}"
+                                data-book-genre="{{ book.genre.name }}">Ver Detalle</button>
                         <button class="btn btn-success btn-sm btn-add-to-cart" data-book-id="{{ book.id }}">Agregar al Carrito</button>
                     </div>
                 </div>
@@ -164,11 +174,8 @@
         {% endfor %}
     </div>
     
-    
-    
-        {% comment %} aca va el modal  {% endcomment %}
-     <!-- Modal para mostrar detalles del libro -->
-     <div class="modal fade" id="bookDetailModal" tabindex="-1" aria-labelledby="bookDetailModalLabel" aria-hidden="true">
+    <!-- Modal para mostrar detalles del libro -->
+    <div class="modal fade" id="bookDetailModal" tabindex="-1" aria-labelledby="bookDetailModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -184,6 +191,7 @@
             </div>
         </div>
     </div>
+    
 </div>
   
 </div>
@@ -236,53 +244,53 @@
 
 <!-- Scripts de Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-    
-        // Escuchar clics en los botones "Agregar al Carrito"
-        var addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
-        addToCartButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                var bookId = button.getAttribute('data-book-id');
-    
-                // Realizar la solicitud POST al servidor
-                fetch(`/add_to_cart/${bookId}/`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': csrfToken,
-                    },
-                    body: JSON.stringify({ book_id: bookId }),
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('La respuesta del servidor no fue correcta');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Respuesta del servidor:', data);
-                    alert('Libro agregado al carrito correctamente');
-                    // Puedes actualizar dinámicamente la interfaz de usuario del carrito aquí si es necesario
-    
-                })
-                .catch(error => {
-                    console.error('Error al agregar al carrito:', error);
-                    alert('Error al agregar al carrito');
-                });
+    $(document).ready(function() {
+        // Captura del evento de clic en el botón "Agregar al Carrito"
+        $('.btn-add-to-cart').click(function() {
+            var book_id = $(this).data('book-id');
+
+            // Envío de solicitud AJAX para agregar el producto al carrito
+            $.ajax({
+                type: 'GET',  // Puedes cambiar a 'POST' si es necesario
+                url: '{% url 'agregar_producto' 0 %}'.replace('0', book_id),
+                success: function(response) {
+                    // Manejo de éxito: podrías mostrar un mensaje, actualizar contador, etc.
+                    console.log('Producto agregado al carrito');
+                    alert('Producto agregado al carrito');
+                },
+                error: function(error) {
+                    console.log('Error al agregar producto al carrito');
+                    alert('Error al agregar producto al carrito');
+                }
+            });
+        });
+
+        var myModal = new bootstrap.Modal(document.getElementById('bookDetailModal'), {
+            keyboard: false
+        });
+
+        document.querySelectorAll('.btn-show-details').forEach(item => {
+            item.addEventListener('click', event => {
+                var bookId = item.getAttribute('data-book-id');
+                var bookTitle = item.getAttribute('data-book-title');
+                var bookDescription = item.getAttribute('data-book-description');
+                var bookAuthor = item.getAttribute('data-book-author');
+                var bookGenre = item.getAttribute('data-book-genre');
+
+                document.getElementById('bookTitle').innerText = bookTitle;
+                document.getElementById('bookDescription').innerText = bookDescription;
+                document.getElementById('bookAuthor').innerText = 'Autor: ' + bookAuthor;
+                document.getElementById('bookGenre').innerText = 'Género: ' + bookGenre;
+
+                myModal.show();
             });
         });
     });
-    </script>
+</script>
+
     
-
-
-
-
-
-
 
 </body>
 </html>

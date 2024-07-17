@@ -63,7 +63,6 @@ class CartItem(models.Model):
     cart = models.ForeignKey(Cart, related_name='items', on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
-    # Otros campos si los tienes
 
     def subtotal(self):
         return self.book.price * self.quantity
